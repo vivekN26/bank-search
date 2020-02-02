@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-10 m-auto">
+      <app-search-bar (dataSet)="setData($event)"></app-search-bar>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-10 m-auto">
+      <ng-container *ngFor="let bank of list">
+        <app-bank-snippet [bank]="bank"></app-bank-snippet>
+      </ng-container>
+    </div>
+  </div>
+  <div class="row" *ngIf="list.length == 0">
+    <div class="col-lg-10 m-auto">
+      <ng-container *ngFor="let item of [].constructor(3)">
+        <div class="row b-card mt-2 mb-2" style="min-height: 100px;">
+          <div class="col-lg-10 m-auto">
+            <div>Loading...</div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

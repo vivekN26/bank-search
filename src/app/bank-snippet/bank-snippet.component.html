@@ -1,0 +1,19 @@
+<section class="row b-card mt-2 mb-2 p-3">
+  <div class="col-lg-4">
+    <a [href]="bank.id"><strong>{{bank.bank_name}}</strong></a>
+    <ul style="list-style: none" class="p-0 m-0">
+      <li>
+        <span class="f-grey">Branch:&nbsp;</span>
+        <span>{{bank.branch}}</span>
+      </li>
+      <li>
+        <span class="f-grey">IFSC:&nbsp;</span>
+        <span>{{bank.ifsc}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-lg-6">
+    <p>{{bank.address}}</p>
+    <p>{{bank.district}}, {{bank.city}}, {{bank.state}}</p>
+  </div>
+</section>

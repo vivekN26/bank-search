@@ -1,0 +1,10 @@
+<div class="row mt-2" >
+  <div class="col-lg-4">
+    <select  class="form-control" [(ngModel)]="selectedCity" (change)="changeSelection();">
+      <option *ngFor="let city of cities" [value]="city.name">{{city.label}}</option>
+    </select>
+  </div>
+  <div class="col-lg-8">
+    <input type="search" class="form-control">
+  </div>
+</div>

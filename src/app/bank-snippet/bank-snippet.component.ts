@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {FavouritesService} from '../services/favourites.service';
 
 @Component({
   selector: 'app-bank-snippet',
@@ -7,9 +8,12 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BankSnippetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private favService: FavouritesService) { }
   @Input() bank;
   ngOnInit() {
   }
-
+  setAsFav() {
+    this.favService.setAsFav(this.bank);
+    this.bank.markedFav = true;
+  }
 }

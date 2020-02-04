@@ -1,40 +1,22 @@
-<nav aria-label="Pagination">
-  <ul class="pagination">
-    <li class="pagination-previous" *ngIf="currentPage > 1 else prevDisabled">
-      <a aria-label="Next page" (click)="prev()">Previous <span class="show-for-sr">page</span></a>
+<nav aria-label="Page navigation example">
+
+  <ul class="pagination justify-content-center">
+
+    <li class="page-item" [ngClass]="{'disabled': currentPage < 2 }">
+      <a class="page-link" (click)="prev()" href="#">Previous</a>
     </li>
-    <ng-template #prevDisabled>
-      <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
-    </ng-template>
-    <!--    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>-->
-
-    <li  *ngFor="let count of counter | slice:start:numLimit">
-      <button aria-label="Page " [ngClass]="{'current': (count + 1) === currentPage}" [disabled]="(count + 1) === currentPage" (click)="setPage(count + 1)">{{count + 1}}</button>
+    <li class="page-item" *ngFor="let count of counter | slice:start:numLimit" [ngClass]="{'active': (count) === currentPage}">
+      <span class="page-link" *ngIf="(count ) === currentPage">
+        {{count + 1}}
+           <span class="sr-only">(current)</span>
+      </span>
+      <a class="page-link" *ngIf="(count) !== currentPage" href="#"
+               (click)="setPage(count)">{{count + 1}}</a>
+      <!--      <button aria-label="Page " >{{count + 1}}</button>-->
     </li>
 
-    <!--    <li class="ellipsis" aria-hidden="true"></li>-->
-    <li class="pagination-next" *ngIf="currentPage < pagesLen else nextDisabled">
-      <a aria-label="Next page" (click)="next()">Next <span class="show-for-sr">page</span></a>
+    <li class="page-item" [ngClass]="{'disabled': currentPage > (pagesLen-2) }">
+      <a class="page-link" href="#" (click)="next()">Next</a>
     </li>
-    <ng-template #nextDisabled>
-      <li class="pagination-next disabled">Next <span class="show-for-sr">page</span></li>
-    </ng-template>
-
-
   </ul>
 </nav>
-<!--
-<nav aria-label="Pagination">
-  <ul class="pagination">
-    <li class="pagination-previous disabled">Previous <span class="show-for-sr">page</span></li>
-    <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
-    <li><a href="#" aria-label="Page 2">2</a></li>
-    <li><a href="#" aria-label="Page 3">3</a></li>
-    <li><a href="#" aria-label="Page 4">4</a></li>
-    <li class="ellipsis" aria-hidden="true"></li>
-    <li><a href="#" aria-label="Page 12">12</a></li>
-    <li><a href="#" aria-label="Page 13">13</a></li>
-    <li class="pagination-next"><a href="#" aria-label="Next page">Next <span class="show-for-sr">page</span></a></li>
-  </ul>
-</nav>
--->

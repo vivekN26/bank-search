@@ -8,6 +8,10 @@ import { BankDetailsComponent } from './bank-details/bank-details.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { PaginationComponent } from './pagination/pagination.component';
+import { SearchPipe } from './pipes/search.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { FavListComponent } from './fav-list/fav-list.component';
+
 
 @NgModule({
   declarations: [
@@ -15,12 +19,15 @@ import { PaginationComponent } from './pagination/pagination.component';
     SearchBarComponent,
     BankSnippetComponent,
     BankDetailsComponent,
-    PaginationComponent
+    PaginationComponent,
+    SearchPipe,
+    FavListComponent
   ],
     imports: [
         BrowserModule,
         FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      AppRoutingModule
     ],
   providers: [],
   bootstrap: [AppComponent]

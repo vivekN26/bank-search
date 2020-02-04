@@ -24,15 +24,22 @@ export const CITIES = [
 })
 export class SearchBarComponent implements OnInit {
   @Output() dataSet = new EventEmitter();
+  @Output() loading = new EventEmitter();
+  @Output() keySearchQuery = new EventEmitter();
+  public searchKey;
   public cities = CITIES;
   public selectedCity = this.cities[0].name;
   public bankList = [];
   constructor(public api: ApiService) { }
 
+  changeTriggered() {
+    this.keySearchQuery.emit(this.searchKey);
+  }
   changeSelection() {
     this.getBankList();
   }
   getBankList() {
+    this.loading.emit(true);
     let params = {
       params : { city: this.selectedCity }
     }
@@ -41,8 +48,10 @@ export class SearchBarComponent implements OnInit {
         console.log(data);
         this.bankList = data;
         this.dataSet.emit(data);
+        this.loading.emit(false);
       }, error => {
         console.log(error);
+        this.loading.emit(false);
       }
     );
   }

@@ -11,6 +11,8 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { AppRoutingModule } from './app-routing.module';
 import { FavListComponent } from './fav-list/fav-list.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { FavListComponent } from './fav-list/fav-list.component';
         BrowserModule,
         FormsModule,
       HttpClientModule,
-      AppRoutingModule
+      AppRoutingModule,
+      NoopAnimationsModule,
+      MatIconModule
     ],
   providers: [],
   bootstrap: [AppComponent]

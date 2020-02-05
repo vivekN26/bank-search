@@ -1,34 +1,38 @@
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid ">
+  <div class="row search-bar">
     <div class="col-lg-10 m-auto">
       <app-search-bar (dataSet)="setData($event)" (loading)="changeStatus($event)" (keySearchQuery) = setQuery($event) ></app-search-bar>
     </div>
   </div>
-  <div class="row" *ngIf="!dataLoading">
+  <div class="row mt-5 pt-5" *ngIf="!dataLoading">
     <div class="col-lg-10 m-auto">
       <ng-container *ngFor="let bank of list | search:'': searchQuery : true | slice: start * pageSize : (start * pageSize + pageSize)">
         <app-bank-snippet [bank]="bank"></app-bank-snippet>
       </ng-container>
     </div>
   </div>
-  <div class="row" *ngIf="list.length == 0 || dataLoading">
+  <div class="row mt-5 pt-5" *ngIf="list.length == 0 || dataLoading">
     <div class="col-lg-10 m-auto">
       <ng-container *ngFor="let item of [].constructor(3)">
-        <div class="row b-card mt-2 mb-2" style="min-height: 100px;">
-          <div class="col-lg-10 m-auto">
-            <div>Loading...</div>
+        <div class="row b-card mt-2 mb-2 card-loader" style="min-height: 100px;">
+          <div class="col-lg-10 m-auto tex-center">
+            <div  style="color:#ccc;">Loading...</div>
           </div>
         </div>
       </ng-container>
     </div>
   </div>
   <div class="row" *ngIf="list.length > 0 && !dataLoading">
-    <div class="form-group">
-      <label>Page Size</label>
-      <select [(ngModel)]="pageSize" class="form-control" (change)="changePageSize();">
-        <option [ngValue]="size" *ngFor="let size of sizeList">{{size}}</option>
-      </select>
+    <div class="col-lg-2 m-auto">
+      <div class="form-group">
+        <label>Page Size</label>
+        <select [(ngModel)]="pageSize" class="form-control" (change)="changePageSize();">
+          <option [ngValue]="size" *ngFor="let size of sizeList">{{size}}</option>
+        </select>
+      </div>
     </div>
+  </div>
+  <div class="row" *ngIf="list.length > 0 && !dataLoading">
     <div class="col-lg-10 m-auto">
       <app-pagination [pagesLen]="pageLen" [limit]="pageSize" [currentPage]="start" (changePage)="changePageNum($event)"></app-pagination>
     </div>

@@ -1,5 +1,8 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ApiService} from '../services/api.service';
+import {FavouritesService} from '../services/favourites.service';
+// import _ from 'lodash';
+import each from 'lodash/each';
 export const CITIES = [
   {
     name: 'MUMBAI', label: 'Mumbai',
@@ -30,13 +33,21 @@ export class SearchBarComponent implements OnInit {
   public cities = CITIES;
   public selectedCity = this.cities[0].name;
   public bankList = [];
-  constructor(public api: ApiService) { }
+  private fav_list: any;
+  constructor(public api: ApiService, public favService: FavouritesService) { }
 
   changeTriggered() {
     this.keySearchQuery.emit(this.searchKey);
   }
   changeSelection() {
     this.getBankList();
+  }
+  appendFavData(list) {
+    this.fav_list = this.favService.getFav();
+    each(list, (bank) => {
+      bank.markedFav = !!(this.fav_list[bank.city + '_' + bank.ifsc]);
+    })
+    return list;
   }
   getBankList() {
     this.loading.emit(true);
@@ -46,8 +57,8 @@ export class SearchBarComponent implements OnInit {
     this.api.getData('GET', '/banks', params).subscribe(
       data => {
         console.log(data);
-        this.bankList = data;
-        this.dataSet.emit(data);
+        this.bankList = this.appendFavData(data);
+        this.dataSet.emit(this.bankList);
         this.loading.emit(false);
       }, error => {
         console.log(error);

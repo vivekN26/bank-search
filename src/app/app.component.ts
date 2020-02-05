@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,7 @@ export class AppComponent {
   public pageSize = 10;
   public pageLen;
   public dataLoading = false;
-  private searchQuery: any;
+  public searchQuery: any;
 
   setData(e) {
     this.list = e;

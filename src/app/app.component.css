@@ -1,0 +1,10 @@
+.search-bar {
+  box-shadow: 0px 2px 6px 0px #0901018c;
+  background: #f36;
+  height: 72px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+

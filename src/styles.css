@@ -2,6 +2,7 @@
 .b-card {
   box-shadow: 0px 0px 12px 0px lightgrey;
   border-radius: 7px;
+  background: white;
 }
 .f-grey {
   color: #ccc;
@@ -19,3 +20,10 @@
 .pagination button:hover {
    background: none;
  }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bg-color {
+  background: #00064512;
+}

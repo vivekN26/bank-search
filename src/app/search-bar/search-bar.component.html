@@ -1,4 +1,4 @@
-<div class="row mt-2" >
+<div class="row mt-1 mb-1" >
   <div class="col-lg-4">
     <select  class="form-control" [(ngModel)]="selectedCity" (change)="changeSelection();">
       <option *ngFor="let city of cities" [value]="city.name">{{city.label}}</option>

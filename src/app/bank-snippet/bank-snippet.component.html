@@ -1,7 +1,9 @@
 <section class="row b-card mt-2 mb-2 p-3">
   <div class="col-lg-4">
-    <a [href]="bank.id"><strong>{{bank.bank_name}}</strong></a>
-    <button (click)="setAsFav()">Mark as Fav</button>
+    <a href="javascript:void(0);"><strong>{{bank.bank_name}}</strong></a>
+    <mat-icon (click)="removeFav()" style="position: absolute; cursor: pointer" class="pl-2" *ngIf="bank.markedFav">favorite</mat-icon>
+    <mat-icon (click)="setAsFav()" style="position: absolute; cursor: pointer" class="pl-2" *ngIf="!bank.markedFav">favorite_border</mat-icon>
+
     <ul style="list-style: none" class="p-0 m-0">
       <li>
         <span class="f-grey">Branch:&nbsp;</span>

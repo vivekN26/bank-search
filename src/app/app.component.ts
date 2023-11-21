@@ -21,6 +21,8 @@ export class AppComponent {
     console.log(e);
     this.changePageSize();
     console.log('test my changes')
+    console.log('test my changes')
+
   }
 
   changeStatus(e) {

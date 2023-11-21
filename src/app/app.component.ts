@@ -18,11 +18,7 @@ export class AppComponent {
 
   setData(e) {
     this.list = e;
-    console.log(e);
     this.changePageSize();
-    console.log('test my changes')
-    console.log('test my changes')
-
   }
 
   changeStatus(e) {

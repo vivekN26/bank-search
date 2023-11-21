@@ -20,7 +20,7 @@ export class AppComponent {
     this.list = e;
     this.changePageSize();
     let a = 2 + 4;
-    if (a === 7) {
+    if (a === 6) {
       // do nothig
     }
   }

@@ -19,8 +19,9 @@ export class AppComponent {
   setData(e) {
     this.list = e;
     this.changePageSize();
+    let c;
     let a = 2 + 4;
-    if (a === 6) {
+    if (a == 6) {
       // do nothig
     }
   }

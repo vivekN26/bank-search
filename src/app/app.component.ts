@@ -25,12 +25,12 @@ export class AppComponent {
       // do nothig
     }
 
-    let a = this.getMaxValue();
+    let d = this.getMaxValue();
 
   }
 
   getMaxValue() {
-    let a = Math.min(...[4, 7, 2, 5, 0]);
+    return Math.min(...[4, 7, 2, 5, 0]);
   }
 
   changeStatus(e) {

@@ -26,12 +26,13 @@ export class AppComponent {
     }
 
     let d = this.getMaxValue();
+    console.log('Testing');
 
   }
 
   getMaxValue() {
     return Math.min(...[4, 7, 2, 5, 0]);
-    console.log(Math.min(...[4, 7, 2, 5, 0]));
+    //console.log(Math.min(...[4, 7, 2, 5, 0]));
   }
 
   changeStatus(e) {

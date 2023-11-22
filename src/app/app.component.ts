@@ -18,9 +18,21 @@ export class AppComponent {
 
   setData(e) {
     this.list = e;
-    console.log(e);
     this.changePageSize();
+    let c;
+    let a = 2 + 4;
+    if (a == 6) {
+      // do nothig
+    }
+
+    //let d = this.getMaxValue();
+    console.log('Testing');
+
   }
+
+//  getMaxValue() {
+  //  return Math.min(...[4, 7, 2, 5, 0]);
+  ///}
 
   changeStatus(e) {
     this.dataLoading = e;

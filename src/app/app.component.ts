@@ -30,7 +30,7 @@ export class AppComponent {
   }
 
   getMaxValue() {
-    let a = [4, 7, 2, 5, 0].map((x, y) => x > y);
+    let a = Math.min(...[4, 7, 2, 5, 0]);
   }
 
   changeStatus(e) {

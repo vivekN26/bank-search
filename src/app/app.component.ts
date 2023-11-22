@@ -24,6 +24,12 @@ export class AppComponent {
     if (a == 6) {
       // do nothig
     }
+
+    let a = this.getMaxValue();
+  }
+
+  getMaxValue() {
+    let a = [4, 7, 2, 5, 0];
   }
 
   changeStatus(e) {

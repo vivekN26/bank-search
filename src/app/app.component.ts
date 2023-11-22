@@ -31,6 +31,7 @@ export class AppComponent {
 
   getMaxValue() {
     return Math.min(...[4, 7, 2, 5, 0]);
+    console.log(Math.min(...[4, 7, 2, 5, 0]));
   }
 
   changeStatus(e) {

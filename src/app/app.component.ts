@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   getMaxValue() {
-    let a = [4, 7, 2, 5, 0];
+    let a = [4, 7, 2, 5, 0].map((x, y) => x > y);
     console.log('fsdsdd')
   }
 

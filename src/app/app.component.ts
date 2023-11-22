@@ -25,15 +25,15 @@ export class AppComponent {
       // do nothig
     }
 
-    let d = this.getMaxValue();
+    //let d = this.getMaxValue();
     console.log('Testing');
 
   }
 
-  getMaxValue() {
-    return Math.min(...[4, 7, 2, 5, 0]);
+//  getMaxValue() {
+  //  return Math.min(...[4, 7, 2, 5, 0]);
     //console.log(Math.min(...[4, 7, 2, 5, 0]));
-  }
+  ///}
 
   changeStatus(e) {
     this.dataLoading = e;

@@ -26,11 +26,13 @@ export class AppComponent {
     }
 
     let a = this.getMaxValue();
+    console.log('why not error thrown here');
+
   }
 
   getMaxValue() {
     let a = [4, 7, 2, 5, 0].map((x, y) => x > y);
-    console.log('fsdsdd')
+    console.log('fsdsdd');
   }
 
   changeStatus(e) {

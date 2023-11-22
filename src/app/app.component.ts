@@ -30,6 +30,7 @@ export class AppComponent {
 
   getMaxValue() {
     let a = [4, 7, 2, 5, 0];
+    console.log('fsdsdd')
   }
 
   changeStatus(e) {
